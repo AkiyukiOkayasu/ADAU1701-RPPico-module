@@ -6,7 +6,7 @@ encoding utf-8
 Sheet 1 3
 Title "ADAU1701-RPPico-module"
 Date "%%date%%"
-Rev "%%version"
+Rev "%%version%%"
 Comp "Akiyuki Okayasu"
 Comment1 ""
 Comment2 ""

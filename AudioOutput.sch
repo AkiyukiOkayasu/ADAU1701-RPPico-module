@@ -6,7 +6,7 @@ encoding utf-8
 Sheet 3 3
 Title "Audio outputs"
 Date "%%date%%"
-Rev "%%version"
+Rev "%%version%%"
 Comp "Akiyuki Okayasu"
 Comment1 ""
 Comment2 ""
