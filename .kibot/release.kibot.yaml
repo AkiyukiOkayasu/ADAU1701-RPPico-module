@@ -25,9 +25,43 @@ filters:
       - column: Reference
         regex: "^(G|#|TP|F).*"
 
-# This imports the KiBot scripts that actually do all the generation. If you want to
-# generate different things/more things then change these to point to other .kibot.yaml files.
-import:
-  - file: includes/documentation-2layer.kibot.yaml
-  - file: includes/JLCPCB-2layer.kibot.yaml
-  - file: includes/PCBWay-2layer.kibot.yaml
+outputs:
+  - name: 'gerbers'
+    comment: "Gerbers for the board house"
+    type: gerber
+    dir: gerberdir
+    options:
+      # generic layer options
+      exclude_edge_layer: false
+      exclude_pads_from_silikscreen: false
+      plot_sheet_reference: false
+      plot_footprint_refs: true
+      plot_footprint_values: true
+      force_plot_invisible_refs_vals: false
+      tent_vias: true
+      line_width: 0.15
+      
+      #gerber options
+      use_aux_axis_as_origin: false
+      subtract_mask_from_silk: true
+      use_protel_extentions: false
+      gerber_precision: 4.5
+      create_gerber_job_file: true
+      use_gerber_x2_attributes: true
+      use_gerber_net_attributes: false
+    layers: 'all'
+    
+  - name: 'compress'
+    comment: "zip"
+    type: compress
+    dir: zip
+  
+  - name: 'ibom'
+    comment: "iBom"
+    type: ibom
+    dir: iBOM
+    
+  - name: 'pdf'
+    comment: "PDF"
+    type: pdf_sch_print
+    dir: pdf
